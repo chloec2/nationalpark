@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>National Parks Finder</title>
+
+    <link rel="stylesheet" href="css/styles.css"/>
+    <link rel="stylesheet" href="css/jquery.lightbox.css"/>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/jquery.lightbox.min.js"></script>
+    <script src="js/activities.js"></script>
+    
+</head>
+
+<body onload="getActivities()">
+    <div id="container">
+        <!-- heading and title-->
+        <header>
+            <h1>National Park Finder!</h1>
+            <p>[insert some description]</p>
+        </header>
+        <br/>
+
+        <!-- nav bar -->
+        <nav>
+            <a class="selected" href="index.html">Activities</a>
+            <a href="webcams.html">Images</a>
+        </nav>
+
+        <div id="content">
+            <p>Click on an activity to see which parks offer it!</p>
+
+            <form>
+                <table id="activities">
+
+                </table>
+            </form>
+            
+
+        </div>
+
+        <footer>
+            by Chloe Chan, 2021. Powered by <a href="https://www.nps.gov/subjects/developer/api-documentation.htm#/">National Park API</a>
+        </footer>
+    </div>
+</body>
+
+
+</html>
