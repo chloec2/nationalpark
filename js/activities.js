@@ -9,13 +9,13 @@ const baseURL = 'https://developer.nps.gov/api/v1';
 const apiKey = "ibb68aM3lgopIz3eB501lFdqrmnkQl1ZandsBF4c";
 
 // returns set of parks that have at least 1 of the activities
-function getParksFromActivities(activityArr){
+function getParksFromActivities(activityIDArr){
     let parks = new Set();
 
     // add all selected activites to the url
     let url = baseURL + '/activities/parks?id=' + activityArr[0];
-    for (let i = 1; i < activityArr.length; i++){
-        url = url + ',' + activityArr[i];
+    for (let i = 1; i < activityIDArr.length; i++){
+        url = url + ',' + activityIDArr[i];
     }
     url = url + '/&api_key=' + apiKey;
 
@@ -43,6 +43,8 @@ function getParksFromActivities(activityArr){
 
 // getParksFromActivities(['09DF0950-D319-4557-A57E-04CD2F63FF42', '13A57703-BB1A-41A2-94B8-53B692EB7238']);
 
+let activities_dict = new Map();
+
 // returns array of all the activities
 function getActivities(){
     let activities = Array();
@@ -51,11 +53,12 @@ function getActivities(){
             url: baseURL+'/activities?/&api_key='+ apiKey,
             type: "GET",
             success: function(result) {
-                // pushes all names of activities into activiites list
+                // pushes all names of activities into activiites list and actiivites_dict
                 for (let i = 0; i < result.data.length; i++) {
-                    let activity = result.data[i].name;
-                    activities.push(activity);
-                    // console.log(result.data[i].id);
+                    let activityName = result.data[i].name;
+                    let activityID = result.data[i].id;
+                    activities.push(activityName);
+                    activities_dict.set(activityName, activityID);
                 }
 
                 // populating table in index.hthml
@@ -81,18 +84,24 @@ function getActivities(){
     });
 }
 
-// returns an array of all the checked boxes
+// returns an array of all the checked boxes (id of activities)
 function checkboxToArr(){
-    console.log("hi");
     const table = document.getElementById("activities");
     let vals = table.getElementsByTagName("input") 
     let checked = Array();
     for (let i = 0; i < vals.length; i++) {
         if (vals[i].checked) {
-            checked.push(vals[i].value);
+            let id = activityNametoID(vals[i].value)
+            checked.push(id);
         }
     }
+    console.log(checked);
     return checked;
+}
+
+// returns the id of an activity name
+function activityNametoID(name){
+    return activities_dict.get(name);
 }
 
 // $(function() {
