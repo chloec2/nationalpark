@@ -9,11 +9,12 @@ const baseURL = 'https://developer.nps.gov/api/v1';
 const apiKey = "ibb68aM3lgopIz3eB501lFdqrmnkQl1ZandsBF4c";
 
 // returns set of parks that have at least 1 of the activities
-function getParksFromActivities(activityIDArr){
+function getParksFromActivities(){
     let parks = new Set();
+    let activityIDArr = checkboxToArr();
 
     // add all selected activites to the url
-    let url = baseURL + '/activities/parks?id=' + activityArr[0];
+    let url = baseURL + '/activities/parks?id=' + activityIDArr[0];
     for (let i = 1; i < activityIDArr.length; i++){
         url = url + ',' + activityIDArr[i];
     }
@@ -27,7 +28,7 @@ function getParksFromActivities(activityIDArr){
             success: function(result){
                 for (let i = 0; i < result.data.length; i++) {
                     for (let j = 0; j < result.data[i].parks.length; j++){
-                        let park = result.data[0].parks[j].fullName
+                        let park = result.data[i].parks[j].fullName;
                         parks.add(park);
                     }
                 }
@@ -37,11 +38,8 @@ function getParksFromActivities(activityIDArr){
             }
         })
     });
-    console.log(parks);
     return parks;
 }
-
-// getParksFromActivities(['09DF0950-D319-4557-A57E-04CD2F63FF42', '13A57703-BB1A-41A2-94B8-53B692EB7238']);
 
 let activities_dict = new Map();
 
@@ -95,7 +93,6 @@ function checkboxToArr(){
             checked.push(id);
         }
     }
-    console.log(checked);
     return checked;
 }
 
