@@ -17,7 +17,6 @@ function getParksFromActivities(activityArr){
     for (let i = 1; i < activityArr.length; i++){
         url = url + ',' + activityArr[i];
     }
-
     url = url + '/&api_key=' + apiKey;
 
     // get the parks that have at least one of the activities
@@ -42,7 +41,7 @@ function getParksFromActivities(activityArr){
     return parks;
 }
 
-getParksFromActivities(['09DF0950-D319-4557-A57E-04CD2F63FF42', '13A57703-BB1A-41A2-94B8-53B692EB7238']);
+// getParksFromActivities(['09DF0950-D319-4557-A57E-04CD2F63FF42', '13A57703-BB1A-41A2-94B8-53B692EB7238']);
 
 // returns array of all the activities
 function getActivities(){
@@ -70,7 +69,7 @@ function getActivities(){
                         var activityName = activities[j];
                         var checkbox = '<input type="checkbox" id="activity' + j + '" name="activity' + j + '" value="' + activityName + '">';
                         var label = '<label for="activity' + j + '">' + activityName + '</label><br>';
-                        tr.append('<td>' + activityName + '</td>');
+                        tr.append('<td>' + checkbox + label + '</td>');
                     }
                 }
 
@@ -80,6 +79,20 @@ function getActivities(){
             }
         })
     });
+}
+
+// returns an array of all the checked boxes
+function checkboxToArr(){
+    console.log("hi");
+    const table = document.getElementById("activities");
+    let vals = table.getElementsByTagName("input") 
+    let checked = Array();
+    for (let i = 0; i < vals.length; i++) {
+        if (vals[i].checked) {
+            checked.push(vals[i].value);
+        }
+    }
+    return checked;
 }
 
 // $(function() {
