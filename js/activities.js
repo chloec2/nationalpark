@@ -8,47 +8,13 @@
 const baseURL = 'https://developer.nps.gov/api/v1';
 const apiKey = "ibb68aM3lgopIz3eB501lFdqrmnkQl1ZandsBF4c";
 
-// returns set of parks that have at least 1 of the activities
-function getParksFromActivities(){
-    let parks = new Set();
-    let activityIDArr = checkboxToArr();
-
-    // add all selected activites to the url
-    let url = baseURL + '/activities/parks?id=' + activityIDArr[0];
-    for (let i = 1; i < activityIDArr.length; i++){
-        url = url + ',' + activityIDArr[i];
-    }
-    url = url + '/&api_key=' + apiKey;
-
-    // get the parks that have at least one of the activities
-    $(document).ready(function(){
-        $.ajax({
-            url: url,
-            type: "GET",
-            success: function(result){
-                for (let i = 0; i < result.data.length; i++) {
-                    for (let j = 0; j < result.data[i].parks.length; j++){
-                        let park = result.data[i].parks[j].fullName;
-                        parks.add(park);
-                    }
-                }
-            },
-            error:function(error){
-                console.log('error');
-            }
-        })
-    });
-    return parks;
-}
-
 let activities_dict = new Map();
-
 // returns array of all the activities
 function getActivities(){
     let activities = Array();
     $(document).ready(function(){
         $.ajax({
-            url: baseURL+'/activities?/&api_key='+ apiKey,
+            url: baseURL + '/activities?/&api_key=' + apiKey,
             type: "GET",
             success: function(result) {
                 // pushes all names of activities into activiites list and actiivites_dict
@@ -60,7 +26,7 @@ function getActivities(){
                 }
 
                 // populating table in index.hthml
-                var table = $('#activities')
+                var table = $('#activities');
                 const cols = 5;
                 const rows = result.data.length / cols;
                 for (let row = 0; row < rows; row++) {
@@ -93,12 +59,74 @@ function checkboxToArr(){
             checked.push(id);
         }
     }
+    console.log(checked);
     return checked;
 }
 
 // returns the id of an activity name
 function activityNametoID(name){
     return activities_dict.get(name);
+}
+
+
+function resetParks(){
+    document.getElementById("results").innerHTML = '';
+}
+
+// creates set of parks that have at least 1 of the activities
+// lists them in results.html
+function getParksFromActivities(){
+    resetParks();
+
+    let parkNames = new Set();
+    let parkURLs = new Set();
+    let activityIDArr = checkboxToArr();
+
+    // if nothing is selected do nothing
+    if (activityIDArr.length == 0) {
+        var list = $('#results');
+        list.append("<p>No parks selected!</p>");
+        return;
+    }
+
+    // add all selected activites to the url
+    let url = baseURL + '/activities/parks?id=' + activityIDArr[0];
+    for (let i = 1; i < activityIDArr.length; i++){
+        url = url + ',' + activityIDArr[i];
+    }
+    url = url + '/&api_key=' + apiKey;
+
+    // get the parks that have at least one of the activities
+    $(document).ready(function(){
+        $.ajax({
+            url: url,
+            type: "GET",
+            success: function(result){
+                for (let i = 0; i < result.data.length; i++) {
+                    for (let j = 0; j < result.data[i].parks.length; j++){
+                        let parkName = result.data[i].parks[j].fullName;
+                        let parkURL = result.data[i].parks[j].url;
+                        parkNames.add(parkName);
+                        parkURLs.add(parkURL);
+                    }
+                }
+                parkNames = Array.from(parkNames);
+                parkURLs = Array.from(parkURLs);
+
+                // display in results.html
+                var list = $('#results');
+                for (let j = 0; j < parkNames.length; j++) {
+                    var li = $('<li/>').appendTo(list);
+                    li.append("<a href=" + parkURLs[j] + ">" + parkNames[j] + "</a>");
+                    
+                }
+            },
+
+            error:function(error){
+                console.log('error');
+            }
+        })
+    });
 }
 
 // $(function() {

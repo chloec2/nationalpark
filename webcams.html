@@ -9,11 +9,11 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="js/jquery.lightbox.min.js"></script>
-    <script src="js/activities.js"></script>
+    <script src="js/images.js"></script>
     
 </head>
 
-<body onload="getActivities()">
+<body onload="getParks()">
     <div id="container">
         <!-- heading and title-->
         <header>
@@ -24,25 +24,25 @@
 
         <!-- nav bar -->
         <nav>
-            <a class="selected" href="index.html">Activities</a>
-            <a href="webcams.html">Images</a>
+            <a href="index.html">Activities</a>
+            <a class="selected" href="webcams.html">Images</a>
         </nav>
 
         <div id="content">
-            <p>Click on an activity to see which parks offer it!</p>
-
             <form>
-                <table id="activities">
-
-                </table>
-                <p></p>
-                <button type="button" onclick="getParksFromActivities()">find me parks!</button>
-                <p></p>
+                <label for="parks">choose a park:</label>
+                <select name="parks" id="dropdown">
+                    <option value="none">Select</option>
+                  
+                </select>
+                <br><br>
+                <button type="button" onclick="ImagesFromPark()">view images!</button>
             </form>
         </div>
 
         <div id="results"></div>
         <p></p>
+
 
         <footer>
             by Chloe Chan, 2021. Powered by <a href="https://www.nps.gov/subjects/developer/api-documentation.htm#/">National Park API</a>
