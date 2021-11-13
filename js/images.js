@@ -31,7 +31,7 @@ function getParks(){
 
             },
             error:function(error){
-                console.log('error');``
+                console.log('error');
             }
         })
     });
@@ -39,6 +39,8 @@ function getParks(){
 
 // displays the images after selection
 function ImagesFromPark(){
+    resetImages();
+
     // get the images from the name
     var name = document.getElementById("dropdown");
     var selected = name.options[name.selectedIndex].text;
@@ -51,4 +53,8 @@ function ImagesFromPark(){
         results.append('<img src="' + images[i].url + '" alt="' + images[i].altText + '">');
     }
     
-}   
+}
+
+function resetImages(){
+    document.getElementById("results").innerHTML = '';
+}

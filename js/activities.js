@@ -26,7 +26,7 @@ function getActivities(){
                 }
 
                 // populating table in index.hthml
-                var table = $('#activities');
+                var table = $('#activities')
                 const cols = 5;
                 const rows = result.data.length / cols;
                 for (let row = 0; row < rows; row++) {
@@ -59,7 +59,6 @@ function checkboxToArr(){
             checked.push(id);
         }
     }
-    console.log(checked);
     return checked;
 }
 
@@ -116,8 +115,8 @@ function getParksFromActivities(){
                 // display in results.html
                 var list = $('#results');
                 for (let j = 0; j < parkNames.length; j++) {
-                    var li = $('<li/>').appendTo(list);
-                    li.append("<a href=" + parkURLs[j] + ">" + parkNames[j] + "</a>");
+                    var cell = $('<div id="cell"/>').appendTo(list);
+                    cell.append("<a href=" + parkURLs[j] + " target=\"_blank\">" + parkNames[j] + "</a>");
                     
                 }
             },
@@ -128,7 +127,3 @@ function getParksFromActivities(){
         })
     });
 }
-
-// $(function() {
-//     $('#gallery a').lightBox();
-// });

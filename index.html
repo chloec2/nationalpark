@@ -4,9 +4,14 @@
 <head>
     <title>National Parks Finder</title>
 
+    <!-- css -->
     <link rel="stylesheet" href="css/styles.css"/>
     <link rel="stylesheet" href="css/jquery.lightbox.css"/>
 
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
+
+    <!-- js -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="js/jquery.lightbox.min.js"></script>
     <script src="js/activities.js"></script>
@@ -19,19 +24,18 @@
         <header>
             <h1>National Park Finder!</h1>
             <p>[insert some description]</p>
-        </header>
-        <br/>
+            <br/>
 
-        <!-- nav bar -->
-        <nav>
-            <a class="selected" href="index.html">Activities</a>
-            <a href="webcams.html">Images</a>
-        </nav>
+            <!-- nav bar -->
+            <nav>
+                <a href="index.html">Activities</a>
+                <a class="selected" href="webcams.html">Images</a>
+            </nav>
+        </header>
 
         <div id="content">
-            <p>Click on an activity to see which parks offer it!</p>
-
             <form>
+                <p>Click on an activity to see which parks offer it!</p>
                 <table id="activities">
 
                 </table>
