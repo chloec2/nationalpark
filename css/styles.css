@@ -1,4 +1,88 @@
 html {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 35rem;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(238, 234, 226, 0.556) 50%, rgb(238, 234, 226) 100%), url("../images/background.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: scroll;
+    padding: 3%;
+}
+
+/* NAV BAR */
+nav {
+    font-family: 'Acme', sans-serif;
+    font-size: x-large;
+    text-align: right;
+    padding: 0.5%;
+}
+
+nav a {
+    font-size: 1.125em;
+    padding: 1%;
+    color: #000000;
+    text-decoration: none;
+    background: rgba(238, 234, 226, 0.398);
+}
+
+nav a:hover {	
+    background: rgba(238, 234, 226, 0.754);
+    color: rgb(29, 111, 15);
+    
+}
+
+nav a.selected {
+    background: rgba(238, 234, 226, 0.754);
+    color: rgb(24, 80, 14);
+    text-decoration: none;
+}
+    
+nav a.selected:hover {
+    background: rgba(238, 234, 226, 0.754);
+    color: rgb(29, 111, 15);
+}
+
+/* REST OF HEADER */
+#header-elements {
+    font-family: 'Acme', sans-serif;
+    color: black;
+    font-size: x-large;
+    padding: 1.5%;
+    background-color: rgba(238, 234, 226, 0.754);
+}
+
+h1 {
+    font-family: 'Acme', sans-serif;
+    font-size: 4rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* BODY STUFF */
+body {
+    font-family: 'Rubik', sans-serif;
+    font-size: large;
+    background-color: rgba(255, 255, 255, 0);
+    /* background: linear-gradient(to bottom, rgb(238, 234, 226) 10%, rgb(238, 234, 226) 80%, white); */
+}
+
+#content {
+    background-color: rgba(238, 234, 226, 0.754);
+    padding: 1.5%;
+}
+
+#content-elements {
+    padding: 10px;
+}
+
+#content-title {
+    font-size: 120%;
+    font-weight: bold;
+}
+
+#results {
     background-color: rgb(238, 234, 226);
 }
 
@@ -8,50 +92,52 @@ table {
     border-collapse: collapse;
 }
 
-header {
-    font-family: 'Acme', sans-serif;
-    font-weight: bold;
-    color: white;
-    background-image: url("../images/background.jpg"); /* https://media.timeout.com/images/105766417/image.jpg */
+
+/* FOOTER STUFF */
+footer {
+    /* background-color: rgb(238, 234, 226); */
+    text-align: center;
+    padding: 2%;
 }
 
-body {
-    font-family: 'Acme', sans-serif;
-    font-size: x-large;
+#name-footer {
+    font-size: medium;
 }
 
-#content {
-    /* margin: 25px 25px 25px 25px; */
-    background-color: rgb(238, 234, 226);
+#api-footer {
+    font-size: small;
 }
 
-#results {
-    margin: 25px 25px 25px 25px;
-    background-color: rgb(238, 234, 226);
-    display: grid;
-    grid-template-columns: auto auto auto;
-    row-gap: 5px;
-    column-gap: 5px;
-    vertical-align: baseline;
-    place-self: center;
-}
-
-#results a {
-    color: black;
+footer a {
     text-decoration: none;
-    padding: 5px 5px;
-    text-align: center;
-    display: inline-block;
-    width: 80%;
+    color: rgb(24, 80, 14);
+
 }
 
-#results a:hover {
-    /* background-color: rgb(218, 218, 218); */
-    opacity: 0.4;
+footer a:visited {
+    color: rgb(24, 80, 14);
 }
 
-#cell {
-    background-color: white;
-    text-align: center;
-    /* place-self: center; */
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* BUTTONS */
+.btn-primary, .btn-primary:visited, .btn-primary:active  {
+
+    background-color: rgb(29, 111, 15);
+    border-color: rgb(29, 111, 15);
+}
+
+.btn-primary:focus, .btn-primary:active:focus {
+    background-color: rgb(29, 111, 15);
+    border-color: rgb(29, 111, 15);
+    box-shadow: 0 0 0 0.2rem rgb(148, 197, 139);
+}
+
+
+.btn-primary:hover {
+    background-color: rgb(24, 80, 14);
+    border-color: rgb(24, 80, 14);
 }

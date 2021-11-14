@@ -4,17 +4,20 @@
 <head>
     <title>National Parks Finder</title>
 
-    <!-- css -->
-    <link rel="stylesheet" href="css/styles.css"/>
-    <link rel="stylesheet" href="css/jquery.lightbox.css"/>
-
-    <!-- fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
-
-    <!-- js -->
+    <!-- JavaScript -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="js/jquery.lightbox.min.js"></script>
     <script src="js/activities.js"></script>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css"/>
+    <link rel="stylesheet" href="css/index.css"/>
+    <link rel="stylesheet" href="css/jquery.lightbox.css"/>
     
 </head>
 
@@ -22,34 +25,40 @@
     <div id="container">
         <!-- heading and title-->
         <header>
-            <h1>National Park Finder!</h1>
-            <p>[insert some description]</p>
-            <br/>
-
+            <h1>National Park Finder</h1>
             <!-- nav bar -->
             <nav>
-                <a href="index.html">Activities</a>
-                <a class="selected" href="webcams.html">Images</a>
+                <a class="selected" href="index.html">Activities</a>
+                <a href="webcams.html">Images</a>
             </nav>
+            <p></p>
+            <div id="header-elements">
+                <p>For the last 100 years, the National Park Service has contributed greatly to the preservation and management of America's national parks, as well as many of its national monuments. More than 330 million people visit the 61 national parks they oversee each year, with 40 million overnight campers.</p>
+                <p>This web app will help you...</p>
+                <ol>  
+                    <li>Find all the national parks that offer the activites you're looking for</li>
+                    <li>Look at images of any national park</li>
+                </ol>
+            </div>
         </header>
 
         <div id="content">
-            <form>
-                <p>Click on an activity to see which parks offer it!</p>
-                <table id="activities">
-
-                </table>
+            <form id="content-elements">
+                <div id="content-title">Click on an activity to see which parks offer it!</div>
                 <p></p>
-                <button type="button" onclick="getParksFromActivities()">find me parks!</button>
+                <table id="activities"></table>
                 <p></p>
+                <button type="button" class="btn btn-primary" onclick="getParksFromActivities()">Find Parks!</button>
             </form>
         </div>
 
         <div id="results"></div>
-        <p></p>
 
         <footer>
-            by Chloe Chan, 2021. Powered by <a href="https://www.nps.gov/subjects/developer/api-documentation.htm#/">National Park API</a>
+            <div id="name-footer">by <a href="https://github.com/chloec2" target="_blank">Chloe Chan</a>, 2021</div>
+            <div id="api-footer">
+                Powered by <a href="https://www.nps.gov/subjects/developer/api-documentation.htm#/" target="_blank">National Park API</a>
+            </div>
         </footer>
     </div>
 </body>

@@ -1,0 +1,14 @@
+.carousel-inner > .carousel-item > img,
+.carousel-inner > .carousel-item > a > img {
+  width: 70%;
+  margin: auto;
+}
+
+.carousel-caption {
+    font-size: large;
+}
+
+#results {
+    padding: 15px 15px 15px 15px;
+    background-color: rgb(238, 234, 226, 0.754);
+}
