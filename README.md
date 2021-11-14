@@ -1,16 +1,18 @@
 # National Park Finder
 This web app uses National Park Service API to help you find all the national parks that offer the activites you're looking for, as well as look at images of any national park! 
 
+Deployed at: https://chloec2.github.io/nationalpark/
+
 
 ## Solution
-This web app involves two pages. 
+This web app involves two pages.
 
 The first page, Activites, allows you to select from available activites and lists all the parks that offer at least 1 of the selected activites. The parks are displayed in a grid, and each result is hyperlinked to the park's webpage for more information.
 
 In the second page, Images, you can select a park from a dropdown menu. Clicking the "View Images" button will display a slideshow of images that were retrived from park webcams, which was done using Bootstrap. 
 
 
-## Challenege Prompt
+## Challenge Prompt
 (Copied from MindSumo)
 
 For the last 100 years, the National Park Service has contributed greatly to the preservation and management of America's national parks, as well as many of its national monuments. More than 330 million people visit the 61 national parks they oversee each year, with 40 million overnight campers. 
