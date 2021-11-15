@@ -10,7 +10,7 @@ function getActivities(){
             url: baseURL + '/activities?limit=500/&api_key=' + apiKey,
             type: "GET",
             success: function(result) {
-                // pushes all names of activities into activiites list and actiivites_dict
+                // pushes all names of activities into activiites list and activities_dict
                 for (let i = 0; i < result.data.length; i++) {
                     let activityName = result.data[i].name;
                     let activityID = result.data[i].id;
