@@ -5,11 +5,9 @@ Deployed at: https://chloec2.github.io/nationalpark/
 
 
 ## Solution
-This web app involves two pages.
+This web app uses National Park Service API to help you find all the national parks that offer the activities you're looking for and displays it in a grid, where each cell can be clicked to take you to the page of that national park for more information. I first queried for the activity names by making a HTTP GET request to the API, and then queried for all the parks and links related to the selected activities. Each time the "Find Parks!" button is clicked, the results are cleared and the grid is populated with the new results.
 
-The first page, Activities, allows you to select from available activities and lists all the parks that offer at least 1 of the selected activities. The parks are displayed in a grid, and each result is hyperlinked to the park's webpage for more information.
-
-In the second page, Images, you can select a park from a dropdown menu. Clicking the "View Images" button will display a slideshow of images that were retrieved from park webcams and displayed using Bootstrap.
+The second page of the web app also allows you to view a slideshow of images that were retrieved from park webcams​ and displayed using Bootstrap. After selecting from a dropdown menu of all the parks, which was queried from the API, images are displayed using a Bootstrap carousel, along with captions and slideshow indicators. Each time a new park is selected and the "View Images!" button is clicked, a new set of images are displayed based on the selection.
 
 
 ## Challenge Prompt
