@@ -1,5 +1,5 @@
 # National Park Finder
-This web app uses National Park Service API to help you find all the national parks that offer the activites you're looking for, as well as look at images of any national park! 
+This web app uses National Park Service API to help you find all the national parks that offer the activities you're looking for, as well as look at images of any national park! 
 
 Deployed at: https://chloec2.github.io/nationalpark/
 
