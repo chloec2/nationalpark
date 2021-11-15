@@ -7,9 +7,9 @@ Deployed at: https://chloec2.github.io/nationalpark/
 ## Solution
 This web app involves two pages.
 
-The first page, Activites, allows you to select from available activites and lists all the parks that offer at least 1 of the selected activites. The parks are displayed in a grid, and each result is hyperlinked to the park's webpage for more information.
+The first page, Activities, allows you to select from available activities and lists all the parks that offer at least 1 of the selected activities. The parks are displayed in a grid, and each result is hyperlinked to the park's webpage for more information.
 
-In the second page, Images, you can select a park from a dropdown menu. Clicking the "View Images" button will display a slideshow of images that were retrived from park webcams, which was done using Bootstrap. 
+In the second page, Images, you can select a park from a dropdown menu. Clicking the "View Images" button will display a slideshow of images that were retrieved from park webcams, which was done using Bootstrap. 
 
 
 ## Challenge Prompt
